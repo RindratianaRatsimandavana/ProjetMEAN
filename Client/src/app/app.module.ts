@@ -20,6 +20,9 @@ import { FactureComponent } from './facture/facture.component';
 import { VoitureEnregistrerComponent } from './voiture-enregistrer/voiture-enregistrer.component';
 
 
+
+
+
 const routes: Routes = 
   [
     { path: "login", component: LoginComponent },

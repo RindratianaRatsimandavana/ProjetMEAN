@@ -34,6 +34,10 @@ export class NavbarComponent implements OnInit{
 
     menuItems: any[];
 
+    //debut code MEAN
+    testUser = JSON.parse(localStorage.getItem('user'));
+    //fin code mean
+
     constructor(location: Location,  private element: ElementRef) {
       this.location = location;
           this.sidebarVisible = false;
@@ -85,4 +89,18 @@ export class NavbarComponent implements OnInit{
       }
       return 'Dashboard';
     }
+
+    logout()
+  {
+    //localStorage.clear();
+    console.log("ato amin logout");
+    localStorage.removeItem('user');
+    this.testUser= null;
+    this.reload();
+  }
+
+  reload()
+  {
+    location.reload();
+  }
 }

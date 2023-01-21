@@ -18,12 +18,24 @@
                         Inscription
                     </a>
                 </li>
-                <li routerLinkActive="active">
+                 <li   *ngIf ="!testUser;"> <!--elseBlock anaranle else -->
                     <a [routerLink]="['/login']">
+                        <i class="pe-7s-left-arrow"></i>
+                        Connexion
+                    </a>
+                </li>
+                <li routerLinkActive="active" *ngIf ="testUser;"> <!--elseBlock anaranle else -->
+                    <a (click)="logout()">
                         <i class="pe-7s-left-arrow"></i>
                         Deconnexion
                     </a>
                 </li>
+                <!-- <ng-template #elseBlock>
+                    <a [routerLink]="['/logout']">
+                        <i class="pe-7s-left-arrow"></i>
+                         Deconnexion
+                    </a>
+                </ng-template> -->
                 <li class="separator hidden-lg hidden-md"></li>
             </ul>
         </div>

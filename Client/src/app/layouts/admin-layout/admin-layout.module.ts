@@ -16,6 +16,11 @@ import { IconsComponent } from '../../icons/icons.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
+// tsy maintsy nampiana
+import {HttpClientModule} from '@angular/common/http' 
+
+
+
 
 @NgModule({
   imports: [
