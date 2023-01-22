@@ -16,6 +16,7 @@ export class DepotComponent implements OnInit {
   //idClient numVoiture
   insertDepotVoit(formValue:any){
 
+    // tokony misy controle eto
     const testUser= localStorage.getItem('user');
     const offTestUser= JSON.parse(testUser);
     const idUser =offTestUser[0]._id;
@@ -24,12 +25,15 @@ export class DepotComponent implements OnInit {
       idClient: idUser,
       numVoiture: formValue.numVoiture
     }
-    this.depotVoitService.insertDepotVoit(depotVoit).subscribe((data)=>{
-      if(data.message)
-      {
-        this.router.navigate(["/"])
+    this.depotVoitService.insertDepotVoit(depotVoit).subscribe((data: any)=>{
+      
+        //JSON TSY TABLEAU NO NALEFA DIA TSY MISY HOE [0] 
+        console.log("Le message insertDepotVoiture ",data.message);
+       // this.router.navigate(["/"])
+        
+
       }
-    });
+    );
   }
 
 }

@@ -28,17 +28,17 @@ export class InscriptionComponent implements OnInit {
     this.reload();
   }
   
-  login(formValue:any){
-    const loginUser = {
-      email: formValue.email,
-      mdp: formValue.mdp
-    }
-    this.userService.login(loginUser).subscribe();
+  // login(formValue:any){
+  //   const loginUser = {
+  //     email: formValue.email,
+  //     mdp: formValue.mdp
+  //   }
+  //   this.userService.login(loginUser).subscribe();
 
-    // insertion localStorage
-    console.log(loginUser);
-    this.reload();
-  }
+  //   // insertion localStorage
+  //   console.log(loginUser);
+  //   this.reload();
+  // }
   
   reload()
   {
