@@ -16,4 +16,10 @@ export class DepotVoitureService {
       console.log(url , 'url');
       return this.http.post<any>(url , depotVoiture );
   }
+
+  getListeDepotVoiture() {
+    const url = "http://localhost:3000/depotVoiture";
+    console.log(url , 'url');
+    return this.http.get<any>(url,{}); //http.... prend 2 attribut (url,body)
+  }
 }
