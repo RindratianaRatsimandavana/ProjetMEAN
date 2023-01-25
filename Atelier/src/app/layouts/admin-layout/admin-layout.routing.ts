@@ -9,4 +9,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'demandeDepot',  component: DemandeDepotComponent },
     { path: 'reparationEnregistrer',  component: ReparationEnregistrerComponent },
     { path: 'voitureGarage',  component: VoitureGarageComponent },
+    { path: 'voitureGarage',  component: VoitureGarageComponent },
 ];
