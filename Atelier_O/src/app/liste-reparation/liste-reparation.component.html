@@ -1,0 +1,34 @@
+<app-nav></app-nav>
+<div class="container">
+    <h2>Liste de réparation(s) à faire</h2>
+    TOkony misy données mombamomba anle voiture (sary),...
+    <!-- <p>The .table-bordered class adds borders to a table:</p>             -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <!-- tokony asiana etat de bon de sortie ihany na hoe etat de finition hoe complètement fini ve -->
+          <th>Numero voiture</th>
+          <th>Description</th>
+          <th>Etat d'avancement</th>
+          <th>Date de mise à jour de l'etat d'avancement</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reparation of listeReparation">
+          <td>numero voiture</td>
+          <td>{{reparation.descReparation}}</td>
+          <td>{{reparation.nomEtatAv}}</td>
+          <td>{{reparation.dateEtatAv | slice :0:10  }}</td>
+          <td><button class="btn btn-success" [routerLink]="['/modifReparation/',reparation._id]">Modifier</button></td>
+          
+          
+        </tr>
+      </tbody>
+    </table>
+    Tokony misy etat général
+    Tokony zavatra hafa no mipoitra eo raha mbola tsy misy reparation
+    <!-- <button class="btn btn-warning" (click)="validerBonSortie(depotVoiture._id)">Valider bon de sortie</button> -->
+    <button class="btn btn-primary" [routerLink]="['/listeVoitEnGarage']">Retour</button>
+</div>
+  

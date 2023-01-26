@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
       email: formValue.email,
       mdp: formValue.mdp
     }
-    console.log("111111111111");
     this.userService.login(loginUser).subscribe((data: any)  =>{
+// tsy voatery manisy model user satria tsy castena affichena any amin affichage izy
       this.userConnecte =data as any[];
-      console.log("2222222222222");
-      console.log("userConnecte ",data);
+      // console.log("2222222222222");
+      // console.log("userConnecte ",data);
       if(this.userConnecte.length === 1)
       {
         localStorage.setItem('user',JSON.stringify(this.userConnecte));
@@ -36,9 +36,10 @@ export class LoginComponent implements OnInit {
         return;
         // tokony mandefa erreur
       }
-      const testUser= localStorage.getItem('user');
-      const offTestUser= JSON.parse(testUser);
-      console.log("test fangalana idUser "+offTestUser[0]._id);
+      //Fangalana user any amin localstorage
+      // const testUser= localStorage.getItem('user');
+      // const offTestUser= JSON.parse(testUser);
+      // console.log("test fangalana idUser "+offTestUser[0]._id);
       
    });
 
