@@ -1,0 +1,94 @@
+<app-nav></app-nav>
+<div class="container">
+  <style>
+    body {
+      font-family: Arial;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    form.example input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+    }
+    
+    form.example button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+    }
+    
+    form.example button:hover {
+      background: #0b7dda;
+    }
+    
+    form.example::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    </style>
+
+    <h2>Les voitures non récupérées et leurs etat de paiement</h2>
+    <!-- <p>The .table-bordered class adds borders to a table:</p>  --> 
+    
+    
+    <form class="example" #financeSearchForm="ngForm" style="margin:auto;max-width:300px">
+  <input type="text" placeholder="Entrer un numero de voiture.." name="numVoiture" ngModel>
+  <button type="submit" (click)="getDepotVoitureParNumero(financeSearchForm.value)"><i class="fa fa-search"></i></button>
+</form>
+    
+  
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Numero</th>
+          <th>Date de dépôt</th>
+          <!-- <th>Etat de récéption</th> -->
+          <th>Paiement globale</th>
+          <!-- mety tokony asiana etat de récuperation ihany eto -->
+          <th></th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let depotVoiture of listeDepotVoituresEnGarage">
+          <td>IMAGE</td>
+          <td>{{depotVoiture.numVoiture}}</td>
+          <td>{{depotVoiture.dateDepotVoitAvecFormat}}</td>
+          <!-- <td>{{depotVoiture.nomEtatReception}}</td> -->
+          <ng-template [ngIf]="depotVoiture.montantTTlPaiement === 0">
+            <td>Pas de réparation et de paiement enregistré</td>
+            <td><a class="btn btn-success" disabled>Voir les réparations</a></td>
+          </ng-template>
+          <ng-template [ngIf]="depotVoiture.montantTTlPaiement > 0 && depotVoiture.montantTotalPaye === depotVoiture.montantTTlPaiement">
+            <td>Totalité de réparation payé</td>
+            <td><a class="btn btn-success" [routerLink]="['/listeReparation/',depotVoiture._id]">Voir les réparations</a></td>
+          </ng-template>
+          <ng-template [ngIf]="depotVoiture.montantTTlPaiement > 0 && depotVoiture.montantTotalPaye != depotVoiture.montantTTlPaiement">
+            <td>Une ou plusieurs réparation(s) non payée(s)</td>
+            <td><a class="btn btn-success" [routerLink]="['/listeReparation/',depotVoiture._id]">Voir les réparations</a></td>
+          </ng-template>
+          
+        
+          <!-- disabled ireo raha tsy feno ny condition -->
+          
+          <!-- <td><button class="btn btn-warning">Récupérer</button></td> -->
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="getListeVoitureEngarage()">Afficher tous les voitures au garage</button>
+  </div>

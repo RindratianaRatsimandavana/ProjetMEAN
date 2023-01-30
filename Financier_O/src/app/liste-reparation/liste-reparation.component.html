@@ -1,0 +1,49 @@
+<app-nav></app-nav>
+<div class="container">
+  <h2>Gestion des paiements des réparation(s) à faire</h2>
+  <b><em>Numéro voiture:</em></b>{{numVoiture}} <br/>
+  <b><em>Dépôt du:</em></b>{{dateDepotVoit | slice :0:10}}
+    <!-- <p>The .table-bordered class adds borders to a table:</p>             -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+            <!-- tokony asiana etat de bon de sortie ihany na hoe etat de finition hoe complètement fini ve -->
+          <th>Image voiture</th>
+          <th>Description</th>
+          <th>Type de réparation</th>
+          <th>Coût de réparation (Ar)</th>
+          <th>Etat d'avancement</th>
+          <th>Date de mise à jour de l'etat d'avancement</th>
+          <th>Etat de paiement</th>
+          <th>Paiement</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reparation of listeReparation">
+          <td>Image</td>
+          <td>{{reparation.descReparation}}</td>
+          <td>{{reparation.nomTypeReparation}}</td>
+          <td>{{reparation.montantRep}}</td>
+          <td>{{reparation.nomEtatAv}}</td>
+          <td>{{reparation.dateEtatAv | slice :0:10  }}</td>
+          <ng-template [ngIf]="reparation.etatPaiementRep === 0">
+            <td>Non Payé</td>
+            <td><a class="btn btn-success" (click)="paiement(reparation._id,'paiement',reparation.montantRep)">Marquer comme payé</a></td>
+          </ng-template>
+          <ng-template [ngIf]="reparation.etatPaiementRep === 1">
+            <td>Payé</td>
+            <td><a class="btn btn-success" disabled>Marquer comme payé</a></td>
+          </ng-template>
+          
+        </tr>
+      </tbody>
+    </table>
+    <b><em>Etat paiement globale:</em></b>{{etatAvancementGeneral}}<br/>
+    <b><em>Coût totale réparation:</em></b>{{montantTTlPaiement}} Ar<br/>
+    <!-- <button class="btn btn-warning" (click)="validerBonSortie(depotVoiture._id)">Valider bon de sortie</button> -->
+    <!-- <button class="btn btn-success" [routerLink]="['/facture/',idDepotVoit]">Voir facture</button> -->
+    <button class="btn btn-primary" [routerLink]="['/listeVoitEnGarage']">Retour</button>
+</div>
+
+  

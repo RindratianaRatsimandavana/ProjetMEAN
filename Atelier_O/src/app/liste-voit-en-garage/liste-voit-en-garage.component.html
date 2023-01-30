@@ -1,0 +1,31 @@
+<app-nav></app-nav>
+<div class="container">
+    <h2>Les voitures récéptionnés au garage </h2>
+    <!-- <p>The .table-bordered class adds borders to a table:</p>             -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Numero voiture</th>
+          <th>Date de demande de dépot</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let depotVoiture of listeVoitEnGarage">
+            <td>Image</td>
+            <td>{{depotVoiture.numVoiture}}</td>
+            <td><a class="btn btn-success"  [routerLink]="['/ajoutReparation/',depotVoiture._id]">Ajouter réparation</a></td>
+            <!-- tokony disabled raha tsy mbola misy réparation -->
+            
+            <ng-template [ngIf]="depotVoiture.nbreReparationAFaire === 0">
+              <td><a class="btn btn-warning"  disabled>Voir les réparations</a></td>
+            </ng-template>
+            <ng-template [ngIf]="depotVoiture.nbreReparationAFaire > 0">
+              <td><a class="btn btn-warning"  [routerLink]="['/listeReparation/',depotVoiture._id]">Voir les réparations</a></td>
+            </ng-template>
+            
+        </tr>
+      </tbody>
+    </table>
+</div>
+  

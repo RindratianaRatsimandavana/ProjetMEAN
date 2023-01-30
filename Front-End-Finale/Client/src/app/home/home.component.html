@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+        </button>
+        <h1>Page Client</h1>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Rehefa empty dia miretourne true -->
+                <!-- <li *ngIf ="isEmptyObject(testUser);"><a [routerLink]="['/inscription']">
+                    <span class="glyphicon glyphicon-user"></span>Inscription</a></li> -->
+                <li *ngIf ="isEmptyObject(testUser);"><a [routerLink]="['/login']">
+                    <span class="glyphicon glyphicon-log-in"></span>Connexion</a></li>
+                <li *ngIf ="!isEmptyObject(testUser);"><a (click)="logout()"><span class="glyphicon glyphicon-log-in"></span>Deconnexion</a></li>
+            </ul>
+            <!-- <a mat-list-item>Depot de voiture</a> -->
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side">
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="['/depot']" ><mat-icon>commute</mat-icon>Depot de voiture</a>
+            <a mat-list-item [routerLink]="['/listeReparation/:idDepotVoit']"><mat-icon>assignment</mat-icon>Liste Reparation</a>
+            <a mat-list-item [routerLink]="['/listeVoitEnGarage']" ><mat-icon>list</mat-icon>Liste Voiture garage</a>
+            <a mat-list-item [routerLink]="['/facture/:idDepotVoit']"><mat-icon>payment</mat-icon>Facture</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- <div class="page">
+    <router-outlet></router-outlet>
+</div> -->
+
