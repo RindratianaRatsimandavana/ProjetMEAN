@@ -1,0 +1,16 @@
+.page{
+    background-color:white;
+    margin-left: 450px;
+    margin-right: 450px;
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 50px;
+}
+.contenu{
+    background: rgb(61, 60, 132);
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}

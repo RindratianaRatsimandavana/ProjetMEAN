@@ -1,0 +1,29 @@
+<!-- <app-nav></app-nav> -->
+<div class="container page">
+    <h2>Vos voitures dans nos garages</h2>
+    <!-- <p>The .table-bordered class adds borders to a table:</p>             -->
+    <table class="table table-success">
+      <thead>
+        <tr class="table-info">
+          <th>Image</th>
+          <th>Numero</th>
+          <th>Date de dépôt</th>
+          <th>Etat de récéption</th> 
+          <!-- mety tokony asiana etat de récuperation ihany eto -->
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let depotVoiture of listeDepotVoitures">
+          <td>IMAGE</td>
+          <td>{{depotVoiture.numVoiture}}</td>
+          <td>{{depotVoiture.dateDepotVoitAvecFormat}}</td>
+          <td>{{depotVoiture.nomEtatReception}}</td>
+          <!-- disabled ireo raha tsy feno ny condition -->
+          <td><a class="btn btn-success" [routerLink]="['/listeReparation/',depotVoiture._id]">Voir les réparations</a></td>
+          <td><button class="btn btn-warning">Récupérer</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

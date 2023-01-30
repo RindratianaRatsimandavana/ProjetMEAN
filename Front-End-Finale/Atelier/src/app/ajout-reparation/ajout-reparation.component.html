@@ -1,0 +1,32 @@
+<!-- <app-nav></app-nav> -->
+<div class="container">
+    <h2>Ajouter réparation</h2>
+    <b><em>Numéro voiture:</em></b>{{numVoiture}} <br/>
+    <b><em>Dépôt du:</em></b>{{dateDepotVoit | slice :0:10}}
+    <form #AjoutRepForm="ngForm">
+      <div class="form-group">
+        <div class="form-group">
+            <label for="sel1"></label>
+            <input type="hidden" class="form-control" name="idDepotVoiture" ngModel>
+          </div>
+        <label for="sel1">Type de réparation:</label>
+        <select class="form-control" id="typeRep" name="typeRep" [(ngModel)]="typeRep"> 
+            <option value="1">Réparation mineure</option>
+            <option value="2">Réparation moyenne</option>
+            <option value="3">Réparation majeure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sel1">Description réparation:</label>
+        <input type="text" class="form-control" name="descRep" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="sel1">Montant réparation:</label>
+        <input type="text" class="form-control" name="montantRep" ngModel>
+      </div>
+      <button type="submit" class="btn btn-success"(click)="ajoutRep(AjoutRepForm.value)">Ajouter</button>
+    </form>
+
+    
+    <a class="btn btn-primary"  [routerLink]="['/listeVoitEnGarage']">Retour</a>
+</div>

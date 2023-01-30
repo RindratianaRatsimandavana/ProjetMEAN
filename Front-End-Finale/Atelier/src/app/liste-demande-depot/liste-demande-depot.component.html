@@ -1,0 +1,22 @@
+<!-- <app-nav></app-nav> -->
+<div class="container">
+    <h2>Les demandes de dépôts</h2>
+    <!-- <p>The .table-bordered class adds borders to a table:</p>             -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Numero voiture</th>
+          <th>Date de demande de dépot</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let depotVoiture of listeDemandeDepotVoitures">
+          <td>{{depotVoiture.numVoiture}}</td>
+          <td>{{depotVoiture.dateDepotVoitAvecFormat}}</td>
+          <td><button class="btn btn-success" (click)="receptionnerVoit(depotVoiture._id,'etatReception',1)">Récéptionner voiture</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  
