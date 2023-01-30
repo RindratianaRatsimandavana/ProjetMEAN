@@ -1,17 +1,16 @@
 <app-nav></app-nav>
 
 <div class="container">
-    TOKONY ASIANA DONN2ES MOMBANLE VOITURE
-    <h2>Modifier réparation</h2>
+    <h2>Mise à jour de d'état d' avancement de la réparation</h2>
     <form #ModifRepForm="ngForm">
       
         <div class="form-group">
             <label for="sel1"></label>
-            <input type="text" class="form-control" name="idReparation" [(ngModel)]="reparation._id" >
+            <input type="hidden" class="form-control" name="idReparation" [(ngModel)]="reparation._id" disabled>
           </div>
         <div class="form-group">
         <label for="sel1">Type de réparation:</label>
-        <input type="text" class="form-control" name="typeRep" [value]="reparation.nomTypeReparation">
+        <input type="text" class="form-control" name="typeRep" [value]="reparation.nomTypeReparation" disabled>
         <!-- <select class="form-control" id="typeRep" name="typeRep" [(ngModel)]="typeDeReparation"> 
             <option value="1">Réparation mineure</option>
             <option value="2">Réparation moyenne</option>
@@ -20,11 +19,11 @@
       </div>
       <div class="form-group">
         <label for="sel1">Description réparation:</label>
-        <input type="text" class="form-control" name="descRep" [(ngModel)]="reparation.descReparation">
+        <input type="text" class="form-control" name="descRep" [(ngModel)]="reparation.descReparation" disabled>
       </div>
       <div class="form-group">
         <label for="sel1">Montant réparation:</label>
-        <input type="text" class="form-control" name="montantRep" [(ngModel)]="reparation.montantRep">
+        <input type="text" class="form-control" name="montantRep" [(ngModel)]="reparation.montantRep" disabled>
       </div> 
       <div class="form-group">
            
@@ -32,7 +31,7 @@
         <select class="form-control" id="typeRep" name="valEtatAv" [(ngModel)]="reparation.valEtatAv"> 
             <option value="0">En attente</option>
             <option value="1">En cours</option>
-            <option value="2">Terimé</option>
+            <option value="2">Terminé</option>  
         </select>
       </div>
       

@@ -13,6 +13,7 @@ export class ModifReparationComponent implements OnInit {
   constructor(private reparationService:ReparationService,private route:ActivatedRoute) { }
   idReparation=  this.route.snapshot.params['idReparation'];
   reparation = {} as reparations;
+
   //  option =[{value:"1", nomValue:"Réparation mineure"},
   //               {value:"2", nomValue:"Réparation moyenne"},
   //               {value:"3", nomValue:"Réparation majeure"}
@@ -22,7 +23,6 @@ export class ModifReparationComponent implements OnInit {
 // valEtatAv :any;
 
   ngOnInit(): void {
-    console.log('salutuuuuuu');
     this.getReparationParId();
   }
 
@@ -40,10 +40,14 @@ export class ModifReparationComponent implements OnInit {
      });
   }
 
+  
+
   modifRep(formValue:any)
   {
-    this.reparationService.updateReparation(this.idReparation,"avancement",formValue.valEtatAv).subscribe();
-    this.reload();
+    // console.log("le id reparation");
+    // console.log(this.reparation.idDepotVoiture);
+     this.reparationService.updateReparation(this.idReparation,"avancement",formValue.valEtatAv,this.reparation.idDepotVoiture).subscribe();
+     this.reload();
   }
 
   reload()

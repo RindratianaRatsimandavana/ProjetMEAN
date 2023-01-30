@@ -16,7 +16,14 @@
             <td>{{depotVoiture.numVoiture}}</td>
             <td><a class="btn btn-success"  [routerLink]="['/ajoutReparation/',depotVoiture._id]">Ajouter réparation</a></td>
             <!-- tokony disabled raha tsy mbola misy réparation -->
-            <td><a class="btn btn-warning"  [routerLink]="['/listeReparation/',depotVoiture._id]">Voir les réparations</a></td>
+            
+            <ng-template [ngIf]="depotVoiture.nbreReparationAFaire === 0">
+              <td><a class="btn btn-warning"  disabled>Voir les réparations</a></td>
+            </ng-template>
+            <ng-template [ngIf]="depotVoiture.nbreReparationAFaire > 0">
+              <td><a class="btn btn-warning"  [routerLink]="['/listeReparation/',depotVoiture._id]">Voir les réparations</a></td>
+            </ng-template>
+            
         </tr>
       </tbody>
     </table>

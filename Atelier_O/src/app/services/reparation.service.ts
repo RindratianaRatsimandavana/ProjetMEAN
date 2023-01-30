@@ -34,8 +34,8 @@ export class ReparationService {
   }
 
   // afaka receptionner ty, afaka zavatra hafa ihany koa rehefa maanao update mombanle resaka voiture fotsiny
-  updateReparation(idReparation: any,cible:any,valeur:any) {
-    const url = "http://localhost:3000/reparation/"+idReparation+"/"+cible+"/"+valeur;
+  updateReparation(idReparation: any,cible:any,valeur:any,idDepotVoiture:any) {
+    const url = "http://localhost:3000/reparation/"+idReparation+"/"+cible+"/"+valeur+"/"+idDepotVoiture;
     console.log(url , 'url');
     return this.http.patch<any>(url,{});
     

@@ -1,7 +1,8 @@
 <app-nav></app-nav>
 <div class="container">
-    TOKONY ASIANA DONN2ES MOMBANLE VOITURE
     <h2>Ajouter réparation</h2>
+    <b><em>Numéro voiture:</em></b>{{numVoiture}} <br/>
+    <b><em>Dépôt du:</em></b>{{dateDepotVoit | slice :0:10}}
     <form #AjoutRepForm="ngForm">
       <div class="form-group">
         <div class="form-group">
@@ -9,7 +10,7 @@
             <input type="hidden" class="form-control" name="idDepotVoiture" ngModel>
           </div>
         <label for="sel1">Type de réparation:</label>
-        <select class="form-control" id="typeRep" name="typeRep" ngModel> 
+        <select class="form-control" id="typeRep" name="typeRep" [(ngModel)]="typeRep"> 
             <option value="1">Réparation mineure</option>
             <option value="2">Réparation moyenne</option>
             <option value="3">Réparation majeure</option>

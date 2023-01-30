@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReparationService } from '../services/reparation.service';
+import { VoitureService } from '../services/voiture.service';
 
 @Component({
   selector: 'app-ajout-reparation',
@@ -10,9 +11,20 @@ import { ReparationService } from '../services/reparation.service';
 export class AjoutReparationComponent implements OnInit {
   idDepotVoit=  this.route.snapshot.params['idDepotVoit'];
 
-  constructor(private route: ActivatedRoute,private reparationService: ReparationService) { }
+  depotvoiture: any[] = [];
+  etatAvancementGeneral: string | undefined;
+  numVoiture: any;
+  dateDepotVoit: any;
+  nbreReparationAFaire: any;
+  nbreReparationFini: any;
+
+  constructor(private route: ActivatedRoute,private reparationService: ReparationService,
+    private voitureService:VoitureService) { }
+
+    typeRep= "1";
 
   ngOnInit(): void {
+    this.getDepotVoitParId(this.idDepotVoit);
   }
   //typeRep descRep montantRep
 
@@ -23,6 +35,7 @@ export class AjoutReparationComponent implements OnInit {
     console.log("idDepotVoit");
     console.log(this.idDepotVoit);
     let nomTypeRep= "";
+    
 
     if(formValue.typeRep === "1")
     {nomTypeRep="Reparation mineure";}
@@ -42,6 +55,17 @@ export class AjoutReparationComponent implements OnInit {
     this.reload();
       
    };
+
+   getDepotVoitParId(id:any){
+    this.voitureService.getDepotVoitureParId(this.idDepotVoit).subscribe((data: any)  =>{
+        this.depotvoiture =data as any[];
+        this.numVoiture= this.depotvoiture[0].numVoiture;
+        this.dateDepotVoit=this.depotvoiture[0].dateDepotVoit;
+        this.nbreReparationAFaire= this.depotvoiture[0].nbreReparationAFaire;
+        this.nbreReparationFini= this.depotvoiture[0].nbreReparationFini;
+       
+     });
+  }
 
    reload()
   {

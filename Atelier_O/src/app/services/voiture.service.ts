@@ -40,4 +40,11 @@ export class VoitureService {
     console.log(url , 'url');
     return this.http.get<any>(url,{}); //http.... prend 2 attribut (url,body)
   }
+
+  getDepotVoitureParId(id:any)
+  {
+    const url = "http://localhost:3000/depotVoiture/depotVoitureParId/"+id;
+    console.log(url , 'url');
+    return this.http.get<any>(url,{}); //http.... prend 2 attribut (url,body)
+  }
 }

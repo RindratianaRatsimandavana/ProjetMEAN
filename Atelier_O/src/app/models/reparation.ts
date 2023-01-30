@@ -5,6 +5,7 @@ export class reparations {
     montantRep?: Number;
     etatPaiementRep?: Number;
     dateEtatPaiement?: Date;
+    nomEtatPaiement?: String;
     valEtatAv?: Number;
     nomEtatAv?: String;
     dateEtatAv?: Date;
