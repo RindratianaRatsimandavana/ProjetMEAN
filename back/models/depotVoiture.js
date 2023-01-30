@@ -8,16 +8,17 @@ const depotVoitureSchema= mongoose.Schema(
         dateDepotVoit: Date,
         dateRecupVoit:Date,
         etatReception:Number,
+        dateReceptionVoit:Date,
         etatRecuperation:Number,
         etatTTlPaieemnt:Number,
         montantTTlPaiement:Number,
         montantTotalPaye:Number,
         nbreReparationAFaire:Number,
         nbreReparationFini:Number,
-        bonDeSortie:Number
+        bonDeSortie:Number,
+        datebonDeSortie:Date,
     }
 );
-
 //Product= le anarana iantsoana anle model refa ampiasa anazy ao amle projet
 module.exports = mongoose.model('DepotVoiture',depotVoitureSchema);
 
