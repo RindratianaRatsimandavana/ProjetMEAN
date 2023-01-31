@@ -97,7 +97,14 @@ app.use((error,req,res,next) =>
 //     }
 // );
 
-app.listen(3000,function()
+// app.listen(3000,function()
+//     {
+//         console.log('! ');
+//     }
+
+// )
+
+app.listen(process.env.NODE_ENV || 3000,function()
     {
         console.log('! ');
     }
