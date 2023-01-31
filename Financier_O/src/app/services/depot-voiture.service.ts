@@ -39,7 +39,14 @@ export class DepotVoitureService {
 
   stat1()
   {
-    const url = this.back+"depotVoiture/date";
+    const url = this.back+"depotVoiture/moyenneRepParTypeRep";
+    console.log(url , 'url');
+    return this.http.get<any>(url,{}); //http.... prend 2 attribut (url,body)
+  }
+
+  statGen()
+  {
+    const url = this.back+"depotVoiture/moyenneRepGlob";
     console.log(url , 'url');
     return this.http.get<any>(url,{}); //http.... prend 2 attribut (url,body)
   }

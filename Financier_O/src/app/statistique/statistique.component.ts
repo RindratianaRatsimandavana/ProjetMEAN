@@ -35,8 +35,7 @@ export class StatistiqueComponent implements OnInit {
     // console.log("Days", this.getDates(startDate, endDate, dayInterval));
     // console.log("Half Days", this.getDates(startDate, endDate, halfDayInterval));
     this.getStat1();
-    this.getChart(this.labetTab1,this.dataY1);
-    
+    //this.getChart(this.labetTab1,this.dataY1);
   }
 
   
@@ -47,10 +46,13 @@ export class StatistiqueComponent implements OnInit {
       labels: x,
       datasets: [
         {
-          label: 'Series A',
+          label: 'Temps moyenne de réparation par type (en jours)',
           data: y,
-          backgroundColor: 'rgba(255,0,0,0.3)',
-          borderColor: 'blue'
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'],
+          borderColor: 'yellow'
         }
       ]
     };
@@ -68,18 +70,18 @@ export class StatistiqueComponent implements OnInit {
     
     ctx = document.getElementById('lineChart');
     new Chart(ctx, {
-      type: 'line',
-      data: lineChartData,
-      options: lineChartOptions
-    });
-
-    let ctx2: any;
-    ctx2 = document.getElementById('lineChart2');
-    new Chart(ctx2, {
       type: 'bar',
       data: lineChartData,
       options: lineChartOptions
     });
+
+    // let ctx2: any;
+    // ctx2 = document.getElementById('lineChart2');
+    // new Chart(ctx2, {
+    //   type: 'bar',
+    //   data: lineChartData,
+    //   options: lineChartOptions
+    // });
   }
 
   // getJoursEntre2Date (startDate:any, endDate:any, addFn:any, interval:any) {
@@ -116,14 +118,23 @@ export class StatistiqueComponent implements OnInit {
     getStat1(){
       this.voitServ.stat1().subscribe((data: any)  =>{
           this.stat1 =data as any;
-          console.log("azo stat1");
-            console.log(this.stat1.moyenneMaj);
-            console.log(this.stat1.moyennetMoy);
+          // console.log("azo stat1");
+          //   console.log(this.stat1.moyenneMaj);
+          //   console.log(this.stat1.moyennetMoy);
             this.valMoy= this.stat1.moyenne;
             this.labetTab1=['Réparation mineure', 'Réparation moyenne', 'Réparation majeure'];
-            this.dataY1= [1,2,3];
+            this.dataY1= [this.stat1.moyenneMin,this.stat1.moyennetMoy,this.stat1.moyenneMaj];
+            this.getStatGen();
+            this.getChart(this.labetTab1,this.dataY1);
 
-          console.log("azo stat2");
+          // console.log("azo stat2");
+       });
+    }
+
+    getStatGen(){
+      this.voitServ.statGen().subscribe((data: any)  =>{
+          let statGen =data as any;
+            this.valMoy= statGen.moyenne;
        });
     }
   

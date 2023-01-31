@@ -69,7 +69,8 @@ router.post('/insertReparation',function(req,res,next)
                 nomEtatAv:"En attente",
                 dateEtatAv:new Date(),
                 typeReparation: req.body.typeReparation,
-                nomTypeReparation: req.body.nomTypeReparation
+                nomTypeReparation: req.body.nomTypeReparation,
+                dateDebutEntreeGarage: new Date()
             }
         );
         rep.save().then

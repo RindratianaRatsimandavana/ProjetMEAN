@@ -25,6 +25,7 @@ export class UserService {
         // }
       const url = this.back+"users/inscription";
       console.log(url , 'url');
+      console.log("tena tato");
       return this.http.post<any>(url , nouveauUser );
   }
 
