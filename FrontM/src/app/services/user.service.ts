@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Lien } from '../pathVariable';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
+  back= Lien.backOnLine;
   inscription(nouveauUser: any) 
   {
 
@@ -21,7 +23,7 @@ export class UserService {
         //     "mdp":"vola",
         //     "typeUser":1
         // }
-      const url = "http://localhost:3000/users/inscription";
+      const url = this.back+"users/inscription";
       console.log(url , 'url');
       return this.http.post<any>(url , nouveauUser );
   }
@@ -30,7 +32,7 @@ export class UserService {
   {
       //     "email": "rindrahratsima@gmail.com",
       //     "mdp": "vola"
-      const url = "http://localhost:3000/users/login";
+      const url = this.back+"users/login";
       console.log(url , 'url');
       return this.http.post<any>(url , user );
   }
