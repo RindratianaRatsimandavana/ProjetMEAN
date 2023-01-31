@@ -6,8 +6,9 @@ const bodyParser=require('body-parser');
 
 const mongoose = require('mongoose');
 //const url = 'mongodb://127.0.0.1:27017/mean1' 
-mongoose.set('strictQuery', false);
-const url= 'mongodb+srv://mongouser:mongouser@cluster0.vys0xda.mongodb.net/?retryWrites=true&w=majority'
+//mongoose.set('strictQuery', false);
+const url = 'mongodb+srv://mongouser:mongouser@cluster0.ovzc44v.mongodb.net/?retryWrites=true&w=majority';
+//const url= 'mongodb+srv://mongouser:mongouser@cluster0.vys0xda.mongodb.net/?retryWrites=true&w=majority'
 mongoose.connect(url, { useNewUrlParser: true }) 
     const db = mongoose.connection
     db.once('open', _ => {
