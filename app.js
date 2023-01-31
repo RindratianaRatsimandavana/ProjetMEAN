@@ -104,9 +104,18 @@ app.use((error,req,res,next) =>
 
 // )
 
+
+// app.listen(process.env.NODE_ENV || 3000,function()
+//     {
+//         console.log('! ');
+//     }
+
+// )
+const isProduction = process.env.NODE_ENV === 'production'
+const port = isProduction ? 7500 : 3000;
 app.listen(process.env.NODE_ENV || 3000,function()
     {
-        console.log('! ');
+        console.log(`listening on ${port}`);
     }
 
 )
