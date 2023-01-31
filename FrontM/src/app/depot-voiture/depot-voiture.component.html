@@ -1,0 +1,97 @@
+<app-nav></app-nav>
+<!-- <tr *ngFor="let depotVoiture of listeDepotVoitures; let first = first; let last = last" 
+    [ngClass]="{ first: first, last: last }">
+    <td>{{hero.name}}</td>
+</tr> -->
+
+<div class="container">
+  <h2>Demande de dépot de voiture</h2>
+  <form #depotVoitForm="ngForm">
+    <!-- <p>A custom dropzone.</p> -->
+
+<div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+	<ngx-dropzone-label>
+		<div>
+			<h2>Glissez une image de votre voiture</h2>
+		</div>
+	</ngx-dropzone-label>
+	<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+	</ngx-dropzone-image-preview>
+</div>
+
+
+
+    <div class="form-group">
+      <label for="numVoiture">Numero de voiture:</label>
+      <input type="text" class="form-control" id="numVoiture" name="numVoiture" required ngModel>
+    </div>
+    <!-- <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div> -->
+   
+    <button type="submit" class="btn btn-info" (click)="insertDepotVoit(depotVoitForm.value)">Déposer</button>
+  </form>
+
+  
+
+<!-- <div class="container">
+  <form #depotVoitForm="ngForm">
+    <h1>Demande de dépot de voiture</h1>
+    <label for="fname"></label>
+    <input type="hidden" id="idClient" name="idClient" value="63c5742a22490e43cdd7dfd6" ngModel><br> -->
+    <!-- <label for="numVoiture">Numero de voiture:</label><br>
+    <input type="text" id="numVoiture" name="numVoiture" ngModel> -->
+    <!-- tokony misy controle dia tsy afaka mi enregistre raha tsy connécté -->
+    <!-- <button class="btn primary" (click)="insertDepotVoit(depotVoitForm.value)">
+        Deposer
+    </button> -->
+
+    <!-- mbola tsy ampy drag and drop -->
+    
+<!-- </form>  -->
+
+<!-- </div> -->
+
+<!-- <table border="1">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>numVoiture</th>
+        <th>etatRecuperation</th>
+        <th>montantTTlPaiement</th>
+        <th>dateDepotVoit</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+  
+        <tr *ngFor="let depotVoiture of listeDepotVoitures">
+            <td>{{depotVoiture._id}}</td>
+            <td>{{depotVoiture.numVoiture}}</td>
+            <td>{{depotVoiture.etatRecuperation}}</td>
+            <td>{{depotVoiture.montantTTlPaiement}}</td> 
+            <td>{{depotVoiture.dateDepotVoit}}</td>
+            <td><button (click)="deleteDepotVoit(depotVoiture._id)" class="btn btn-danger">Delete</button>
+                <button (click)="receptionnerVoit(depotVoiture._id,'montantTTlPaiement',15)" class="btn btn-info" style="margin-left: 10px">ValiderReception</button>
+            </td>
+        </tr>
+</tbody>
+</table> -->
+<!-- _id?: String;
+        idClient ?: String;
+        numVoiture ?: String;
+        dateDepotVoit ?: Date;
+        dateRecupVoit ?: Date;
+        etatReception ?: Number;
+        etatRecuperation ?: Number;
+        etatTTlPaieemnt ?: Number;
+        montantTTlPaiement ?: Number; -->
+
+
+<!-- [(ngModel)] misy erreur le refa manao otrnio fa tsy aiko hoe maninona -->
+    
+
+        
+  
