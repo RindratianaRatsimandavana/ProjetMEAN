@@ -503,10 +503,11 @@ router.get('/date',function(req,res,next)
 );
 
 //http://localhost:3000/depotVoiture
-router.get('',function(req,res,next)
+router.get('/testbonjour',function(req,res,next)
     {
         
         console.log("salamaaaaaaaaaaa");
+        return res.json({message:'oleeeeeeeeeee'});
         
     }
 );
