@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
 export class LoginComponent implements OnInit {
 
   userConnecte: any[] = [];
-  email="xorophille.didier@glail.com";
+  email="xorophille.didier@gmail.com";
   mdp="xoro1234";
 
   // aza adino ny private
