@@ -10,6 +10,8 @@ import { UserService } from '../services/user.service';
 export class LoginComponent implements OnInit {
 
   userConnecte: any[] = [];
+  email="xorophille.didier@glail.com";
+  mdp="xoro1234";
 
   // aza adino ny private
   constructor(private userService: UserService,private router:Router) { }
@@ -19,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   login(formValue:any){
     const loginUser = {
-      email: formValue.email,
-      mdp: formValue.mdp
+      email: this.email,
+      mdp: this.mdp
     }
     this.userService.login(loginUser).subscribe((data: any)  =>{
     // tsy voatery manisy model user satria tsy castena affichena any amin affichage izy
