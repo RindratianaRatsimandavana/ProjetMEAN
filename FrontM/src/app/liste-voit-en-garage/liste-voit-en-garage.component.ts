@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepotVoitureService } from '../services/depot-voiture.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-voit-en-garage',
@@ -8,12 +9,29 @@ import { DepotVoitureService } from '../services/depot-voiture.service';
 })
 export class ListeVoitEnGarageComponent implements OnInit {
   listeDepotVoitures: any[] = [];
-  constructor(private depotVoitureService:DepotVoitureService) { }
+
+  testUser = JSON.parse(localStorage.getItem('user') || '{}');
+  constructor(private depotVoitureService:DepotVoitureService,private router: Router) { }
 
   ngOnInit(): void {
-    this.getListeDepotVoiture();
+    //const testUser = JSON.parse(localStorage.getItem('user') || '{}');
+    if (this.isEmptyObject(this.testUser))
+    {
+      alert("Connexion requise");
+      this.router.navigateByUrl('/login');
+    }
+    else
+    {
+      this.getListeDepotVoiture();
+    }
+   
   }
 
+  isEmptyObject(obj: any) {
+    // return true si empty object sinon false
+    return (obj && (Object.keys(obj).length === 0));
+  }
+  
   getListeDepotVoiture(){
     this.depotVoitureService.getListeDepotVoiture().subscribe((data: any)  =>{
         this.listeDepotVoitures =data as any[];
